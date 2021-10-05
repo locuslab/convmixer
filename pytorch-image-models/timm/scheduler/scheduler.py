@@ -61,6 +61,9 @@ class Scheduler:
     def get_epoch_values(self, epoch: int):
         return None
 
+    def get_frac_epoch_values(self, frac_epoch: float):
+        return None
+
     def get_update_values(self, num_updates: int):
         return None
 
@@ -69,6 +72,13 @@ class Scheduler:
         values = self.get_epoch_values(epoch)
         if values is not None:
             values = self._add_noise(values, epoch)
+            self.update_groups(values)
+
+    def step_frac(self, frac_epoch: int, metric: float = None) -> None:
+        self.metric = metric
+        values = self.get_frac_epoch_values(frac_epoch)
+        if values is not None:
+            values = self._add_noise(values, frac_epoch)
             self.update_groups(values)
 
     def step_update(self, num_updates: int, metric: float = None):
@@ -92,7 +102,7 @@ class Scheduler:
                 apply_noise = t >= self.noise_range_t
             if apply_noise:
                 g = torch.Generator()
-                g.manual_seed(self.noise_seed + t)
+                g.manual_seed(self.noise_seed + round(t))
                 if self.noise_type == 'normal':
                     while True:
                         # resample if noise out of percent limit, brute force but shouldn't spin much

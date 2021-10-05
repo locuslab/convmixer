@@ -669,6 +669,10 @@ def train_one_epoch(
     for batch_idx, (input, target) in enumerate(loader):
         last_batch = batch_idx == last_idx
         data_time_m.update(time.time() - end)
+
+        if lr_scheduler is not None:
+            lr_scheduler.step_frac(epoch + (batch_idx + 1) / len(loader))
+
         if not args.prefetcher:
             input, target = input.cuda(), target.cuda()
             if mixup_fn is not None:

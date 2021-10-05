@@ -24,3 +24,7 @@ If you had a node with 10 GPUs, you could train a ConvMixer-1536/20 as follows (
 ```
 sh distributed_train.sh 10 [/path/to/ImageNet1k] --train-split [your_train_dir] --val-split [your_val_dir] --model convmixer_1536_20 -b 64 -j 10 --opt adamw --epochs 150 --sched onecycle --amp --input-size 3 224 224 --lr 0.01 --aa rand-m9-mstd0.5-inc1 --cutmix 0.5 --mixup 0.5 --reprob 0.25 --remode pixel --num-classes 1000 --warmup-epochs 0 --opt-eps=1e-3 --clip-grad 1.0
 ```
+
+We also included a ConvMixer-768/32 in timm/models/convmixer.py (though it is simple to add more ConvMixers). We trained that one with the above settings but with 300 epochs instead of 150 epochs.
+
+In the near future, we will upload weights.

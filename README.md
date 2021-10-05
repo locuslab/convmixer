@@ -7,7 +7,7 @@ The most important code is in `convmixer.py`. We trained ConvMixers using the `t
 Inside `pytorch-image-models`, we have made the following modifications. (Though one could look at the diff, we think it is convenient to summarize them here.)
 
 - Added ConvMixers
-  - timm/models/convmixer.py
+  - timm/models/convmixer.py (this just registers the ConvMixer implementation in the topmost directory with timm)
   - timm/models/__init__.py
 - Added "OneCycle" LR Schedule
   - timm/scheduler/onecycle_lr.py

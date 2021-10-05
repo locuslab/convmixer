@@ -10,7 +10,7 @@ Inside `pytorch-image-models`, we have made the following modifications. (Though
   - added `timm/models/convmixer.py`
   - modified `timm/models/__init__.py`
 - Added "OneCycle" LR Schedule
-  - `timm/scheduler/onecycle_lr.py`
+  - added `timm/scheduler/onecycle_lr.py`
   - modified `timm/scheduler/scheduler.py`
   - modified `timm/scheduler/scheduler_factory.py`
   - modified `timm/scheduler/__init__.py`

@@ -49,3 +49,11 @@ We also included a ConvMixer-768/32 in timm/models/convmixer.py (though it is si
 
 In the near future, we will upload weights.
 
+The tweetable version of ConvMixer, which requires `from torch.nn import *`:
+
+```
+def ConvMixr(h,d,k,p,n):
+ S,C,A=Sequential,Conv2d,lambda x:S(x,GELU(),BatchNorm2d(h))
+ R=type('',(S,),{'forward':lambda s,x:s[0](x)+x})
+ return S(A(C(3,h,p,p)),*[S(R(A(C(h,h,k,groups=h,padding=k//2))),A(C(h,h,1))) for i in range(d)],AdaptiveAvgPool2d((1,1)),Flatten(),Linear(h,n))
+```

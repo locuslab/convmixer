@@ -2,6 +2,7 @@
 
 This repository contains an implementation of ConvMixer for the ICLR 2022 submission "Patches Are All You Need?".
 
+### Code overview
 The most important code is in `convmixer.py`. We trained ConvMixers using the `timm` framework, which we copied from [here](http://github.com/rwightman/pytorch-image-models).
 
 Inside `pytorch-image-models`, we have made the following modifications. (Though one could look at the diff, we think it is convenient to summarize them here.)
@@ -19,6 +20,26 @@ Inside `pytorch-image-models`, we have made the following modifications. (Though
 We are confident that the use of the OneCycle schedule here is not critical, and one could likely just as well
 train ConvMixers with the built-in cosine schedule.
 
+### Evaluation
+We provide some model weights below:
+
+| Model Name | Kernel Size | Patch Size | File Size |
+|------------|:-----------:|:----------:|----------:|
+|[ConvMixer-1536/20](https://github.com/tmp-iclr/convmixer/releases/download/v1.0/convmixer_1536_20_ks9_p7.pth.tar)| 9 | 7 | 207MB |
+|[ConvMixer-768/32](https://github.com/tmp-iclr/convmixer/releases/download/v1.0/convmixer_768_32_ks7_p7_relu.pth.tar)\*| 7 | 7 | 85MB |
+|[ConvMixer-1024/20](https://github.com/tmp-iclr/convmixer/releases/download/v1.0/convmixer_1024_20_ks9_p14.pth.tar)| 9 | 14 | 98MB |
+
+\* **Important:** ConvMixer-768/32 here uses ReLU instead of GELU, so you would have to change `convmixer.py` accordingly (we will fix this later).
+
+You can evaluate ConvMixer-1536/20 as follows:
+
+```
+python validate.py --model convmixer_1536_20 --b 64 --num-classes 1000 --checkpoint [/path/to/convmixer_1536_20_ks9_p7.pth.tar] [/path/to/ImageNet1k-val]
+```
+
+You should get a `81.37%` accuracy.
+
+### Training
 If you had a node with 10 GPUs, you could train a ConvMixer-1536/20 as follows (these are exactly the settings we used):
 
 ```

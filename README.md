@@ -1,5 +1,4 @@
-# Patches Are All You Need?
-
+# Patches Are All You Need? 🤷
 This repository contains an implementation of ConvMixer for the ICLR 2022 submission ["Patches Are All You Need?"](https://openreview.net/forum?id=TVHS5Y4dNvM).
 
 ### Code overview

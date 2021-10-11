@@ -4,6 +4,8 @@ This repository contains an implementation of ConvMixer for the ICLR 2022 submis
 ### Code overview
 The most important code is in `convmixer.py`. We trained ConvMixers using the `timm` framework, which we copied from [here](http://github.com/rwightman/pytorch-image-models).
 
+__**Update:**__ ConvMixer is now integrated into the [`timm` framework itself](https://github.com/rwightman/pytorch-image-models).
+
 Inside `pytorch-image-models`, we have made the following modifications. (Though one could look at the diff, we think it is convenient to summarize them here.)
 
 - Added ConvMixers

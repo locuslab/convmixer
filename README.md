@@ -69,7 +69,7 @@ sh distributed_train.sh 10 [/path/to/ImageNet1k]
 
 We also included a ConvMixer-768/32 in timm/models/convmixer.py (though it is simple to add more ConvMixers). We trained that one with the above settings but with 300 epochs instead of 150 epochs.
 
-In the near future, we will upload weights.
+__**Note:**__ If you are training on CIFAR-10 instead of ImageNet-1k, we recommend setting `--scale 0.75 1.0` as well, since the default value of 0.08 1.0 does not make sense for 32x32 inputs.
 
 The tweetable version of ConvMixer, which requires `from torch.nn import *`:
 

@@ -1,5 +1,5 @@
 # Patches Are All You Need? 🤷
-This repository contains an implementation of ConvMixer for the ICLR 2022 submission ["Patches Are All You Need?"](https://openreview.net/forum?id=TVHS5Y4dNvM).
+This repository contains an implementation of ConvMixer for the ICLR 2022 submission ["Patches Are All You Need?"](https://openreview.net/forum?id=TVHS5Y4dNvM) by Asher Trockman and Zico Kolter.
 
 ### Code overview
 The most important code is in `convmixer.py`. We trained ConvMixers using the `timm` framework, which we copied from [here](http://github.com/rwightman/pytorch-image-models).

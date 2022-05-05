@@ -1,0 +1,17 @@
+build:
+  gpu: true
+  python_version: "3.8"
+  system_packages:
+    - "libgl1-mesa-glx"
+    - "libglib2.0-0"
+  python_packages:
+    - torch==1.9.0
+    - Pillow==7.0.0
+    - numpy==1.19.4
+    - torchvision==0.10.0
+    - timm==0.5.4
+    - matplotlib==3.3.3
+#  run:
+#    - 'cd pytorch-image-models'
+
+predict: "pytorch-image-models/predict.py:Predictor"

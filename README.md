@@ -3,6 +3,8 @@ This repository contains an implementation of ConvMixer for the ICLR 2022 submis
 
 🔎 New: Check out [this repository](https://github.com/locuslab/convmixer-cifar10) for training ConvMixers on CIFAR-10.
 
+Check out this interactive demo at Replicate: <a href="https://replicate.com/locuslab/convmixer"><img src="https://replicate.com/locuslab/convmixer/badge"></a>
+
 ### Code overview
 The most important code is in `convmixer.py`. We trained ConvMixers using the `timm` framework, which we copied from [here](http://github.com/rwightman/pytorch-image-models).
 
